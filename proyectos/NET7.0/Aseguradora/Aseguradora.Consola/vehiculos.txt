@@ -1,0 +1,25 @@
+1
+BB456BB
+Fiat
+2000
+1
+2
+AB718JD
+Renault
+2015
+3
+3
+AA123AA
+Ford
+2007
+3
+4
+EE111EE
+Volks Wagen
+1999
+3
+5
+AD437BV
+Chevrolet
+2019
+3

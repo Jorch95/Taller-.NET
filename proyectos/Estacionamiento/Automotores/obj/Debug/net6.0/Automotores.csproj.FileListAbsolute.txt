@@ -1,0 +1,12 @@
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/bin/Debug/net6.0/Automotores.deps.json
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/bin/Debug/net6.0/Automotores.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/bin/Debug/net6.0/Automotores.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/Automotores.csproj.AssemblyReference.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/Automotores.GeneratedMSBuildEditorConfig.editorconfig
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/Automotores.AssemblyInfoInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/Automotores.AssemblyInfo.cs
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/Automotores.csproj.CoreCompileInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/Automotores.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/refint/Automotores.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/Automotores.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Estacionamiento/Automotores/obj/Debug/net6.0/ref/Automotores.dll

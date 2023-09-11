@@ -1,0 +1,74 @@
+@page "/ListadoTerceros"
+@inject ListarTercerosUseCase ListarTercerosUseCase
+@inject EliminarTerceroUseCase EliminarTerceroUseCase
+@inject ModificarTerceroUseCase ModificarTerceroUseCase
+@inject AgregarTerceroUseCase AgregarTerceroUseCase
+@inject NavigationManager Navegador
+
+<DialogoConfirmacion @ref="dialogo" OnConfirmado="Eliminar"/>
+<br>
+<button class="btn btn-success" @onclick="()=>AgregarTercero()">
+    <span class="oi oi-plus"></span> Agregar
+</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>DNI</th>
+            <th>TELEFONO</th>
+            <th>SINIESTRO</th>
+            <th>ACCION</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ter in _lista){
+            <tr>
+                <td>@ter.Id</td>
+                <td>@ter.Nombre</td>
+                <td>@ter.Apellido</td>
+                <td>@ter.Dni</td>
+                <td>@ter.Asegurado</td>
+                <td>@ter.Telefono</td>
+                <td>@ter.SiniestroId</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="()=>ModificarTercero(ter.Id)">
+                        <span class="oi oi-pencil"></span>
+                    </button>
+                    <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(ter)">
+                        <span class="oi oi-trash"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Tercero> _lista = new List<Tercero>();
+    protected override void OnInitialized(){
+        _lista = ListarTercerosUseCase.Ejecutar();
+    }
+
+    DialogoConfirmacion dialogo = null!;
+    Tercero? _terceroParaEliminar = null;
+    private void ConfirmarEliminacion(Tercero ter){
+        _terceroParaEliminar = ter;
+        dialogo.Mensaje = $"¿Desea eliminar al tercero {ter.Nombre} {ter.Apellido}?";
+        dialogo.Mostrar();
+    }
+    private void Eliminar(){
+        if (_terceroParaEliminar != null) //Acá realmente se elimina.
+        {
+            EliminarTerceroUseCase.Ejecutar(_terceroParaEliminar.Id);
+            _lista = ListarTercerosUseCase.Ejecutar(); //Se actualiza la lista para mostrar
+        }
+    }
+    void ModificarTercero(int id){
+        Navegador.NavigateTo($"tercero/{id}");
+    }
+    void AgregarTercero(){
+        Navegador.NavigateTo($"tercero/");
+    }
+}

@@ -1,0 +1,31 @@
+@page "/hola"
+@using HolaBlazor.Entidades
+
+<h1>Listado de personas</h1>
+<ul>
+@foreach (var p in lista){
+   <li>@p.Apellido, @p.Nombre (@p.Edad)</li>
+}
+</ul>
+<input placeholder="Nombre" @bind="p.Nombre" /><br>
+<input placeholder="Apellido" @bind="p.Apellido" /><br>
+<input type="number" placeholder="Edad" @bind="p.Edad" /><br>
+<button @onclick="Agregar">Agregar</button>
+
+<button @onclick="Cambiar">Mostrar / Ocultar</button>
+@if (EsVisible){
+   <h1>Hola @nombre.ToUpper()</h1>
+}
+@code {
+    List<Persona> lista = Persona.GetLista();
+    Persona p = new Persona();
+    void Agregar(){
+       lista.Add(p);
+       p = new Persona(); //Permite que el formulario se reinicie para agregar otra persona.
+    }                     //Sin necesidad de refrescar la pagina.
+    string nombre = "Juan";
+    bool EsVisible = true;
+    void Cambiar() {
+        EsVisible = !EsVisible;
+    }
+}

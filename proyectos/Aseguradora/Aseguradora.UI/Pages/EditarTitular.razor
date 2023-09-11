@@ -1,0 +1,59 @@
+@page "/titular/{Id:int?}"
+@inject ObtenerTitularUseCase ObtenerTitularUseCase
+@inject ModificarTitularUseCase ModificarTitularUseCase
+@inject NavigationManager Navegador
+@inject AgregarTitularUseCase AgregarTitularUseCase
+
+@if (_esNuevoTitular){
+   <h3>Agregando un nuevo Titular</h3>
+}   
+else{
+   <h3>Modificando al Titular "@_titular.Nombre"</h3>
+} 
+<DialogoConfirmacion @ref="dialogoA" OnConfirmado="Aceptar"/>
+<br>
+<input placeholder="Nombre" @bind="_titular.Nombre" class="form-control">
+<input placeholder="Apellido" @bind="_titular.Apellido" class="form-control">
+<input placeholder="DNI" @bind="_titular.Dni" class="form-control">
+<input placeholder="Direccion" @bind="_titular.Direccion" class="form-control">
+<input placeholder="Telefono" @bind="_titular.Telefono" class="form-control">
+<input placeholder="Email" @bind="_titular.Email" class="form-control">
+<button class="btn btn-primary" @onclick="()=>ConfirmarAgregacion(_titular)">Agregar</button>
+
+
+@code {
+    Titular _titular = new Titular();
+    [Parameter] public int? Id { get; set; }
+    bool _esNuevoTitular = true;
+    DialogoConfirmacion dialogoA = null!;
+    protected override void OnParametersSet(){
+        if (Id != null){
+            var titular_hallado = ObtenerTitularUseCase.Ejecutar(Id.Value);
+            if (titular_hallado != null){
+                _titular = titular_hallado;
+                _esNuevoTitular = false;
+            }
+        }
+    }
+   void Aceptar(){
+       if (_esNuevoTitular){
+            try{
+                AgregarTitularUseCase.Ejecutar(_titular);
+            }
+            catch (Exception e){
+                System.Console.WriteLine($"{e.Message}");
+            }
+           
+       }
+       else{
+           ModificarTitularUseCase.Ejecutar(_titular);
+       }
+       _titular = new Titular(); 
+       Navegador.NavigateTo("ListadoTitulares");
+   }  
+    private void ConfirmarAgregacion(Titular titular){
+        var _titularParaAgregar = titular;
+        dialogoA.Mensaje = $"¿Desea agregar al cliente {titular.Nombre} {titular.Apellido} con DNI: {titular.Dni}?";
+        dialogoA.Mostrar();
+    }
+}

@@ -1,0 +1,12 @@
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/bin/Debug/net7.0/Aseguradora.Aplicacion.deps.json
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/bin/Debug/net7.0/Aseguradora.Aplicacion.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/bin/Debug/net7.0/Aseguradora.Aplicacion.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/Aseguradora.Aplicacion.csproj.AssemblyReference.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/Aseguradora.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/Aseguradora.Aplicacion.AssemblyInfoInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/Aseguradora.Aplicacion.AssemblyInfo.cs
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/Aseguradora.Aplicacion.csproj.CoreCompileInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/Aseguradora.Aplicacion.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/refint/Aseguradora.Aplicacion.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/Aseguradora.Aplicacion.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.Aplicacion/obj/Debug/net7.0/ref/Aseguradora.Aplicacion.dll

@@ -1,0 +1,46 @@
+@page "/ListadoTitularesConVehiculos"
+@inject ListarTitularesConVehiculosUseCase ListarTitularesConVehiculosUseCase 
+@inject NavigationManager Navegador 
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID TITULAR</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>DNI</th>
+            <th>V. ASEGURADOS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in _listaT){
+            <tr>
+                <td>@t.Id</td>
+                <td>@t.Nombre</td>
+                <td>@t.Apellido</td>
+                <td>@t.Dni</td>
+                @if (@t.Vehiculos.Count>0){
+                    <table class="table">
+                        <tr>
+                    @foreach (var v in t.Vehiculos)
+                    {
+                        <td>@v.Id @v.Dominio</td>    
+                    }
+                    </tr>
+                    </table>
+                }
+                else {
+                    <td>No posee Vehiculo Asegurado.</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code{
+    List<Titular> _listaT = new List<Titular>();
+        protected override void OnInitialized()
+        {
+             _listaT = ListarTitularesConVehiculosUseCase.Ejecutar(); 
+        }
+}

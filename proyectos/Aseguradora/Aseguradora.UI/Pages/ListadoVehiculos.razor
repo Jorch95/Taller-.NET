@@ -1,0 +1,84 @@
+@page "/ListadoVehiculos/{FalloAgregar:bool?}"
+
+@inject ListarVehiculosUseCase ListarVehiculosUseCase
+@inject EliminarVehiculoUseCase EliminarVehiculoUseCase
+@inject ModificarVehiculoUseCase ModificarVehiculoUseCase
+@inject AgregarVehiculoUseCase AgregarVehiculoUseCase
+@inject NavigationManager Navegador
+
+@if (alert){
+    <div class="alert alert-danger" role="alert" dissmisable="true">
+        No se pudo agregar el Vehiculo.
+    </div>
+}
+<DialogoConfirmacion @ref="dialogo" OnConfirmado="Eliminar"/>
+<br>
+<button class="btn btn-success" @onclick="()=>AgregarVehiculo()">
+    <span class="oi oi-plus"></span> Agregar
+</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DOMINIO</th>
+            <th>FABRICACION</th>
+            <th>MARCA</th>
+            <th>TITULAR</th>
+            <th>ACCION</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var v in _lista){
+            <tr>
+                <td>@v.Id</td>
+                <td>@v.Dominio</td>
+                <td>@v.AñoFab</td>
+                <td>@v.Marca</td>
+                <td>@v.TitularId</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="()=>ModificarVehiculo(v.Id)">
+                        <span class="oi oi-pencil"></span>
+                    </button>
+                    <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(v)">
+                        <span class="oi oi-trash"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Vehiculo> _lista = new List<Vehiculo>();
+    protected override void OnInitialized(){
+        _lista = ListarVehiculosUseCase.Ejecutar();
+    }
+    [Parameter]  public bool  FalloAgregar{get;set;}
+
+    DialogoConfirmacion dialogo = null!;
+    private bool alert = false;
+    protected override void OnParametersSet(){
+        if (FalloAgregar == true){
+            alert = true;
+        }
+    }
+    Vehiculo? _vehiculoParaEliminar = null; //variable para mostrar que vehiculo se elimina.
+    private void ConfirmarEliminacion(Vehiculo v){
+        _vehiculoParaEliminar = v;
+        dialogo.Mensaje = $"¿Desea eliminar al vehiculo {v.Dominio} {v.Marca}?";
+        dialogo.Mostrar();
+    }
+    private void Eliminar(){
+        if (_vehiculoParaEliminar != null) //Acá realmente se elimina.
+        {
+            EliminarVehiculoUseCase.Ejecutar(_vehiculoParaEliminar.Id);
+            _lista = ListarVehiculosUseCase.Ejecutar(); //se actualiza la lista de vehiculos.
+        }
+    }
+    void ModificarVehiculo(int id){
+        Navegador.NavigateTo($"vehiculo/{id}");
+    }
+    void AgregarVehiculo(){
+        Navegador.NavigateTo($"vehiculo/");
+    }
+}

@@ -1,0 +1,69 @@
+@page "/tercero/{Id:int?}"
+@inject ObtenerTerceroUseCase ObtenerTerceroUseCase
+@inject ModificarTerceroUseCase ModificarTerceroUseCase
+@inject NavigationManager Navegador
+@inject AgregarTerceroUseCase AgregarTerceroUseCase
+@inject ListarSiniestrosUseCase ListarSiniestrosUseCase
+
+@if (_esNuevoTercero){
+   <h3>Agregando un nuevo Tercero</h3>
+}   
+else{
+   <h3>Modificando el Tercero "@_ter.Id"</h3>
+} 
+<DialogoConfirmacion @ref="dialogoA" OnConfirmado="Aceptar"/>
+<br>
+<input placeholder="Nombre" @bind="_ter.Nombre" class="form-control">
+<input placeholder="Apellido" @bind="_ter.Apellido" class="form-control">
+<input placeholder="DNI" @bind="_ter.Dni" class="form-control">
+<input placeholder="Telefono" @bind="_ter.Telefono" class="form-control">
+<input placeholder="Asegurado" @bind="_ter.Asegurado" class="form-control">
+<select class="form-select" @bind="_ter.SiniestroId" >
+    <option value="0"selected>Seleccione un Siniestro.</option>
+    @foreach (var s in _siniestros)
+    {
+        <option value="@s.Id">@s.Id</option>
+    }
+</select>
+<button class="btn btn-primary" @onclick="()=>ConfirmarAgregacion(_ter)">Agregar</button>
+
+
+@code {
+    Tercero _ter = new Tercero();
+    [Parameter] public int? Id { get; set; }
+    bool _esNuevoTercero = true;
+    DialogoConfirmacion dialogoA = null!;
+    List<Siniestro> _siniestros = new List<Siniestro>();
+    
+    protected override void OnInitialized(){
+            _siniestros = ListarSiniestrosUseCase.Ejecutar();
+        }
+    protected override void OnParametersSet(){
+        if (Id != null){
+            var ter_hallado = ObtenerTerceroUseCase.Ejecutar(Id.Value);
+            if (ter_hallado != null){
+                _ter = ter_hallado;
+                _esNuevoTercero = false;
+            }
+        }
+    }
+   void Aceptar(){
+       if (_esNuevoTercero){
+            try{
+                AgregarTerceroUseCase.Ejecutar(_ter);
+            }
+            catch (Exception e){
+                System.Console.WriteLine($"{e.Message}");
+            }   
+       }
+       else{
+           ModificarTerceroUseCase.Ejecutar(_ter);
+       }
+       _ter = new Tercero(); 
+       Navegador.NavigateTo("ListadoTerceros");
+   }  
+    private void ConfirmarAgregacion(Tercero ter){
+        dialogoA.Mensaje = $"¿Desea agregar el Tercero {ter.Apellido} con DNI : {ter.Dni}?";
+        dialogoA.Mostrar();
+    }
+}

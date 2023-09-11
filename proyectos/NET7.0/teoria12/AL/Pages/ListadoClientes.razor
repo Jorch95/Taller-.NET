@@ -1,0 +1,66 @@
+@page "/listadoclientes"
+@inject ListarClientesUseCase ListarClientesUseCase
+@inject EliminarClienteUseCase EliminarClienteUseCase
+@inject ModificarClienteUseCase ModificarClienteUseCase
+@inject AgregarClienteUseCase AgregarClienteUseCase
+@inject NavigationManager Navegador
+
+<DialogoConfirmacion @ref="dialogo" OnConfirmado="Eliminar"/>
+<button class="btn btn-success" @onclick="()=>AgregarCliente()">
+    <span class="oi oi-plus"></span>
+</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>ACCIÓN</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cli in _lista){
+            <tr>
+                <td>@cli.Id</td>
+                <td>@cli.Nombre</td>
+                <td>@cli.Apellido</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="()=>ModificarCliente(cli.Id)">
+                        <span class="oi oi-pencil"></span>
+                    </button>
+                    <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(cli)">
+                        <span class="oi oi-trash"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Cliente> _lista = new List<Cliente>();
+    protected override void OnInitialized(){
+        _lista = ListarClientesUseCase.Ejecutar();
+    }
+
+    DialogoConfirmacion dialogo = null!;
+    Cliente? _clienteParaEliminar = null; //variable para mostrar que cliente se va a eliminar.
+    private void ConfirmarEliminacion(Cliente cli){
+        _clienteParaEliminar = cli;
+        dialogo.Mensaje = $"¿Desea eliminar al cliente {cli.Nombre} {cli.Apellido}?";
+        dialogo.Mostrar();
+    }
+    private void Eliminar(){
+        if (_clienteParaEliminar != null) //Acá realmente se elimina.
+        {
+            EliminarClienteUseCase.Ejecutar(_clienteParaEliminar.Id);
+            _lista = ListarClientesUseCase.Ejecutar(); //se actualiza la lista de clientes
+        }
+    }
+    void ModificarCliente(int id){
+        Navegador.NavigateTo($"cliente/{id}");
+    }
+    void AgregarCliente(){
+        Navegador.NavigateTo($"cliente/");
+    }
+}

@@ -1,0 +1,71 @@
+@page "/siniestro/{Id:int?}"
+@inject ObtenerSiniestroUseCase ObtenerSiniestroUseCase
+@inject ModificarSiniestroUseCase ModificarSiniestroUseCase
+@inject NavigationManager Navegador
+@inject AgregarSiniestroUseCase AgregarSiniestroUseCase
+@inject ListarPolizasUseCase ListarPolizasUseCase
+
+@if (_esNuevoSiniestro){
+   <h3>Agregando un nuevo Siniestro</h3>
+}   
+else{
+   <h3>Modificando el Siniestro "@_sin.Id"</h3>
+} 
+<DialogoConfirmacion @ref="dialogoA" OnConfirmado="Aceptar"/>
+<br>
+<select class="form-select" @bind="_sin.PolizaId" >
+    <option value="0"selected>Seleccione una Poliza.</option>
+    @foreach (var p in _polizas)
+    {
+        <option value="@p.Id">@p.Id</option>
+    }
+</select>
+<label for="iFI">Fecha de ingreso.</label>
+<input id="iFI" placeholder="Fecha de ingreso" type="date" @bind="_sin.FechaIngreso" class="form-control">
+<label for="iFO">Fecha de Ocurrencia.</label>
+<input id="iFO" placeholder="Fecha de Ocurrencia" type="date"@bind="_sin.FechaDeOcurrencia" class="form-control">
+<input placeholder="Direccion del Hecho" @bind="_sin.DireccionDelHecho" class="form-control">
+<input placeholder="Descripcion" @bind="_sin.Descripcion" class="form-control">
+<button class="btn btn-primary" @onclick="()=>ConfirmarAgregacion(_sin)">Agregar</button>
+
+
+@code {
+    Siniestro _sin = new Siniestro();
+    [Parameter] public int? Id { get; set; }
+    bool _esNuevoSiniestro = true;
+    DialogoConfirmacion dialogoA = null!;
+    List<Poliza> _polizas = new List<Poliza>();
+    
+    protected override void OnInitialized(){
+            _polizas = ListarPolizasUseCase.Ejecutar();
+        }
+    protected override void OnParametersSet(){
+        if (Id != null){
+            var sin_hallado = ObtenerSiniestroUseCase.Ejecutar(Id.Value);
+            if (sin_hallado != null){
+                _sin = sin_hallado;
+                _esNuevoSiniestro = false;
+            }
+        }
+    }
+   void Aceptar(){
+       if (_esNuevoSiniestro){
+            try{
+                AgregarSiniestroUseCase.Ejecutar(_sin);
+            }
+            catch (Exception e){
+                System.Console.WriteLine($"{e.Message}");
+            }
+           
+       }
+       else{
+           ModificarSiniestroUseCase.Ejecutar(_sin);
+       }
+       _sin = new Siniestro(); 
+       Navegador.NavigateTo("ListadoSiniestros");
+   }  
+    private void ConfirmarAgregacion(Siniestro sin){
+        dialogoA.Mensaje = $"¿Desea agregar el siniestro con Poliza: {sin.PolizaId}?";
+        dialogoA.Mostrar();
+    }
+}

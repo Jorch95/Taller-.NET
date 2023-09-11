@@ -1,0 +1,15 @@
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/bin/Debug/net7.0/Aseguradora.Repositorios.deps.json
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/bin/Debug/net7.0/Aseguradora.Repositorios.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/bin/Debug/net7.0/Aseguradora.Repositorios.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/bin/Debug/net7.0/Aseguradora.Aplicacion.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/bin/Debug/net7.0/Aseguradora.Aplicacion.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/Aseguradora.Repositorios.csproj.AssemblyReference.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/Aseguradora.Repositorios.GeneratedMSBuildEditorConfig.editorconfig
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/Aseguradora.Repositorios.AssemblyInfoInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/Aseguradora.Repositorios.AssemblyInfo.cs
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/Aseguradora.Repositorios.csproj.CoreCompileInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/Aseguradora.Repositorios.csproj.CopyComplete
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/Aseguradora.Repositorios.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/refint/Aseguradora.Repositorios.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/Aseguradora.Repositorios.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/Aseguradora/Aseguradora.Repositorios/obj/Debug/net7.0/ref/Aseguradora.Repositorios.dll

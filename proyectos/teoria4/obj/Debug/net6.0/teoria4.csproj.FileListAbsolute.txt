@@ -1,0 +1,15 @@
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/bin/Debug/net6.0/teoria4
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/bin/Debug/net6.0/teoria4.deps.json
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/bin/Debug/net6.0/teoria4.runtimeconfig.json
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/bin/Debug/net6.0/teoria4.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/bin/Debug/net6.0/teoria4.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/teoria4.csproj.AssemblyReference.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/teoria4.GeneratedMSBuildEditorConfig.editorconfig
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/teoria4.AssemblyInfoInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/teoria4.AssemblyInfo.cs
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/teoria4.csproj.CoreCompileInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/teoria4.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/refint/teoria4.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/teoria4.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/teoria4.genruntimeconfig.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/teoria4/obj/Debug/net6.0/ref/teoria4.dll

@@ -1,0 +1,86 @@
+@page "/poliza/{Id:int?}"
+@inject ObtenerPolizaUseCase ObtenerPolizaUseCase
+@inject ModificarPolizaUseCase ModificarPolizaUseCase
+@inject ListarPolizasUseCase ListarPolizasUseCase
+@inject NavigationManager Navegador
+@inject AgregarPolizaUseCase AgregarPolizaUseCase
+@inject ListarVehiculosUseCase ListarVehiculosUseCase
+
+@if (@_esNuevaPoliza){
+   <h3>Agregando una nueva Poliza</h3>
+}   
+else{
+   <h3>Modificando la Poliza "@_poliza.Id"</h3>
+    } 
+<DialogoConfirmacion @ref="dialogoA" OnConfirmado="Aceptar"/>
+<br>
+<input aria-required="true" placeholder="100000" @bind="_poliza.ValorAsegurado" class="form-control" required="true">
+<input placeholder="20000" @bind="_poliza.Franquicia" class="form-control">
+<label for="sCob">Seleccione Cobertura:</label>
+<select id="sCob" placeholder="Cobertura" @bind="_poliza.Cobertura" class="form-select"aria-label="default Select Example">
+        <option value="0" selected>Seleccione Cobertura</option>
+        <option value="ResponsabilidadCivil">Responsabilidad Civil</option>
+        <option value="TodoRiesgo">Todo Riesgo</option>
+</select>
+<label for="sFechaI">Fecha del Inicio de la Vigencia</label>
+<input id="sFechaI" type="date" class="form-control" @bind="_poliza.FechaInicioVigencia">
+<label for="sFechaF">Fecha del Fin de la Vigencia</label>
+<input id="sFechaF" type="date" class="form-control" @bind="_poliza.FechaFinVigencia">
+<label for="sVehiculo">Seleccione Vehiculo asociado</label>
+<select id="sVehiculo" placeholder="VehiculoId" @bind="_poliza.VehiculoId" class="form-select">
+    <option value="0" selected>Seleccione Vehiculo:</option>
+        @foreach (var v in _vehiculos)
+        {
+            <option value="@v.Id">@v.Dominio ; @v.Id</option>    
+        }
+        
+</select>
+    
+<button class="btn btn-primary" @onclick="()=>ConfirmarAgregacion(_poliza)">Agregar</button>
+
+
+@code {
+    Poliza _poliza = new Poliza();
+    List<Vehiculo> _vehiculos = new List<Vehiculo>();
+    [Parameter] public int? Id { get; set; }
+    bool _esNuevaPoliza = true;
+    bool FalloAgregar {get;set;} = false;
+    DialogoConfirmacion dialogoA = null!;
+        protected override void OnInitialized()
+        {
+            _vehiculos = ListarVehiculosUseCase.Ejecutar();
+        }
+    
+    protected override void OnParametersSet(){
+        if (Id != null){
+            var p_hallada = ObtenerPolizaUseCase.Ejecutar(Id.Value);
+            if (p_hallada != null){
+                _poliza = p_hallada;
+                _esNuevaPoliza = false;
+            }
+        }
+    }
+   void Aceptar(){
+       if (_esNuevaPoliza){
+            try{
+                AgregarPolizaUseCase.Ejecutar(_poliza);
+            }
+            catch (Exception e){
+                System.Console.WriteLine($"{e.Message}");
+                FalloAgregar = true;
+                Navegador.NavigateTo($"ListadoPolizas/{FalloAgregar}");
+            }
+           
+       }
+       else{
+           ModificarPolizaUseCase.Ejecutar(_poliza);
+       }
+       _poliza = new Poliza(); 
+       Navegador.NavigateTo($"ListadoPolizas/{FalloAgregar}");
+   }  
+    private void ConfirmarAgregacion(Poliza p){
+        var _polizaParaAgregar = p;
+        dialogoA.Mensaje = $"¿Desea agregar la poliza {p.Id}, Valor:{p.ValorAsegurado}?";
+        dialogoA.Mostrar();
+    }
+}

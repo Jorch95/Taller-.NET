@@ -1,0 +1,84 @@
+@page "/ListadoTitulares"
+@inject ListarTitularesUseCase ListarTitularesUseCase
+@inject EliminarTitularUseCase EliminarTitularUseCase
+@inject ModificarTitularUseCase ModificarTitularUseCase
+@inject AgregarTitularUseCase AgregarTitularUseCase
+@inject NavigationManager Navegador
+
+<DialogoConfirmacion @ref="dialogo" OnConfirmado="Eliminar"/>
+<br>
+<button class="btn btn-success" @onclick="()=>AgregarTitular()">
+    <span class="oi oi-plus"></span> Agregar
+</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>DNI</th>
+            <th>DIRECCIÓN</th>
+            <th>TELEFONO</th>
+            <th>EMAIL</th>
+            @* <th>V.ASEGURADOS</th> *@
+            <th>ACCION</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tit in _lista){
+            <tr>
+                <td>@tit.Id</td>
+                <td>@tit.Nombre</td>
+                <td>@tit.Apellido</td>
+                <td>@tit.Dni</td>
+                <td>@tit.Direccion</td>
+                <td>@tit.Telefono</td>
+                <td>@tit.Email</td>
+                @* @if(@tit.VehiculosAsegurados.Count==0){
+                    <td>No posee vehiculos asegurados.</td>
+                }
+                else{
+                    @foreach (var v in tit.VehiculosAsegurados){
+                        <td>@v</td>
+                    }
+                } *@
+                <td>
+                    <button class="btn btn-primary" @onclick="()=>ModificarTitular(tit.Id)">
+                        <span class="oi oi-pencil"></span>
+                    </button>
+                    <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(tit)">
+                        <span class="oi oi-trash"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Titular> _lista = new List<Titular>();
+    protected override void OnInitialized(){
+        _lista = ListarTitularesUseCase.Ejecutar();
+    }
+
+    DialogoConfirmacion dialogo = null!;
+    Titular? _titularParaEliminar = null; //variable para mostrar que cliente se va a eliminar.
+    private void ConfirmarEliminacion(Titular tit){
+        _titularParaEliminar = tit;
+        dialogo.Mensaje = $"¿Desea eliminar al titular {tit.Nombre} {tit.Apellido}?";
+        dialogo.Mostrar();
+    }
+    private void Eliminar(){
+        if (_titularParaEliminar != null) //Acá realmente se elimina.
+        {
+            EliminarTitularUseCase.Ejecutar(_titularParaEliminar.Id);
+            _lista = ListarTitularesUseCase.Ejecutar(); //se actualiza la lista de clientes
+        }
+    }
+    void ModificarTitular(int id){
+        Navegador.NavigateTo($"titular/{id}");
+    }
+    void AgregarTitular(){
+        Navegador.NavigateTo($"titular/");
+    }
+}

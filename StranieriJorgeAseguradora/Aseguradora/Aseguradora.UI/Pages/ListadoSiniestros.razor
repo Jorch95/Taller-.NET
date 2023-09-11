@@ -1,0 +1,73 @@
+@page "/ListadoSiniestros"
+@inject ListarSiniestrosUseCase ListarSiniestrosUseCase
+@inject EliminarSiniestroUseCase EliminarSiniestroUseCase
+@inject ModificarSiniestroUseCase ModificarSiniestroUseCase
+@inject AgregarSiniestroUseCase AgregarSiniestroUseCase
+@inject NavigationManager Navegador
+
+<DialogoConfirmacion @ref="dialogo" OnConfirmado="Eliminar"/>
+<br>
+<button class="btn btn-success" @onclick="()=>AgregarSiniestro()">
+    <span class="oi oi-plus"></span> Agregar
+</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>POLIZAID</th>
+            <th>FECHA INGRESO</th>
+            <th>FECHA OCURRENCIA</th>
+            <th>DIRECCIÓN DEL HECHO</th>
+            <th>DESCRIPCIÓN</th>
+            <th>ACCION</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sin in _lista){
+            <tr>
+                <td>@sin.Id</td>
+                <td>@sin.PolizaId</td>
+                <td>@sin.FechaIngreso</td>
+                <td>@sin.FechaDeOcurrencia</td>
+                <td>@sin.DireccionDelHecho</td>
+                <td>@sin.Descripcion</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="()=>ModificarSiniestro(sin.Id)">
+                        <span class="oi oi-pencil"></span>
+                    </button>
+                    <button class="btn btn-danger" @onclick="()=>ConfirmarEliminacion(sin)">
+                        <span class="oi oi-trash"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    List<Siniestro> _lista = new List<Siniestro>();
+    protected override void OnInitialized(){
+        _lista = ListarSiniestrosUseCase.Ejecutar();
+    }
+
+    DialogoConfirmacion dialogo = null!;
+    Siniestro? _siniestroParaEliminar = null; //variable para mostrar que cliente se va a eliminar.
+    private void ConfirmarEliminacion(Siniestro sin){
+        _siniestroParaEliminar = sin;
+        dialogo.Mensaje = $"¿Desea eliminar el siniestro {sin.Id} con poliza: {sin.PolizaId}?";
+        dialogo.Mostrar();
+    }
+    private void Eliminar(){
+        if (_siniestroParaEliminar != null) //Acá realmente se elimina.
+        {
+            EliminarSiniestroUseCase.Ejecutar(_siniestroParaEliminar.Id);
+            _lista = ListarSiniestrosUseCase.Ejecutar(); //se actualiza la lista de clientes
+        }
+    }
+    void ModificarSiniestro(int id){
+        Navegador.NavigateTo($"siniestro/{id}");
+    }
+    void AgregarSiniestro(){
+        Navegador.NavigateTo($"siniestro/");
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "4xrJOfH3Wxixoy1cKkk8mQHG7mgUSTq1zzkapqgYInfuhAyz2iDqqJ2G9elrMeoQqIpEVPLqNkp+Y2/nR7K0wA==",
+  "success": true,
+  "projectFilePath": "/home/jor/Documentos/.NET/Taller-.NET/proyectos/NET7.0/teoria11/teoria11.csproj",
+  "expectedPackageFiles": [
+    "/home/jor/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "/home/jor/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

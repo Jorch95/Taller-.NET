@@ -1,0 +1,15 @@
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/bin/Debug/net6.0/practica2-12
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/bin/Debug/net6.0/practica2-12.deps.json
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/bin/Debug/net6.0/practica2-12.runtimeconfig.json
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/bin/Debug/net6.0/practica2-12.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/bin/Debug/net6.0/practica2-12.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/practica2-12.csproj.AssemblyReference.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/practica2-12.GeneratedMSBuildEditorConfig.editorconfig
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/practica2-12.AssemblyInfoInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/practica2-12.AssemblyInfo.cs
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/practica2-12.csproj.CoreCompileInputs.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/practica2-12.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/refint/practica2-12.dll
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/practica2-12.pdb
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/practica2-12.genruntimeconfig.cache
+/home/jor/Documentos/.NET/Taller-.NET/proyectos/practica2-12/obj/Debug/net6.0/ref/practica2-12.dll

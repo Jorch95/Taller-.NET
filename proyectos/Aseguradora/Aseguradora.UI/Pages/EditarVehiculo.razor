@@ -1,0 +1,74 @@
+@page "/vehiculo/{Id:int?}"
+@inject ObtenerVehiculoUseCase ObtenerVehiculoUseCase
+@inject ModificarVehiculoUseCase ModificarVehiculoUseCase
+@inject NavigationManager Navegador
+@inject AgregarVehiculoUseCase AgregarVehiculoUseCase
+@inject ListarTitularesUseCase ListarTitularesUseCase
+
+@if (@_esNuevoVehiculo){
+   <h3>Agregando un nuevo Vehiculo</h3>
+}   
+else{
+   <h3>Modificando al Vehiculo "@_vehiculo.Dominio"</h3>
+    } 
+<DialogoConfirmacion @ref="dialogoA" OnConfirmado="Aceptar"/>
+<br>
+<input aria-required="true" placeholder="AAA123" @bind="_vehiculo.Dominio" class="form-control" required="true">
+<input placeholder="Marca: Ejemplo Ford" @bind="_vehiculo.Marca" class="form-control">
+<input placeholder="yyyy" @bind="_vehiculo.AñoFab" class="form-control">
+
+<select class="form-select" required="true" @bind="_vehiculo.TitularId" aria-label="Defaul select example">
+    <option value="0" selected>Seleccione Titular</option>
+        @foreach (var tit in _titulares)
+        {
+            <option value="@tit.Id">@tit.Id</option>
+        }
+</select>
+<button class="btn btn-primary" @onclick="()=>ConfirmarAgregacion(_vehiculo)">Agregar</button>
+
+
+@code {
+    Vehiculo _vehiculo = new Vehiculo();
+    List<Titular> _titulares = new List<Titular>();
+    [Parameter] public int? Id { get; set; }
+    bool _esNuevoVehiculo = true;
+    bool FalloAgregar {get;set;} = false;
+    DialogoConfirmacion dialogoA = null!;
+        protected override void OnInitialized()
+        {
+            _titulares = ListarTitularesUseCase.Ejecutar();
+        }
+    
+    protected override void OnParametersSet(){
+        if (Id != null){
+            var v_hallado = ObtenerVehiculoUseCase.Ejecutar(Id.Value);
+            if (v_hallado != null){
+                _vehiculo = v_hallado;
+                _esNuevoVehiculo = false;
+            }
+        }
+    }
+   void Aceptar(){
+       if (_esNuevoVehiculo){
+            try{
+                AgregarVehiculoUseCase.Ejecutar(_vehiculo);
+            }
+            catch (Exception e){
+                System.Console.WriteLine($"{e.Message}");
+                FalloAgregar = true;
+                Navegador.NavigateTo($"ListadoVehiculos/{FalloAgregar}");
+            }
+           
+       }
+       else{
+           ModificarVehiculoUseCase.Ejecutar(_vehiculo);
+       }
+       _vehiculo = new Vehiculo(); 
+       Navegador.NavigateTo($"ListadoVehiculos/{FalloAgregar}");
+   }  
+    private void ConfirmarAgregacion(Vehiculo v){
+        var _vehiculoParaAgregar = v;
+        dialogoA.Mensaje = $"¿Desea agregar al vehiculo {v.Dominio} {v.Marca} con Titular: {v.TitularId}?";
+        dialogoA.Mostrar();
+    }
+}

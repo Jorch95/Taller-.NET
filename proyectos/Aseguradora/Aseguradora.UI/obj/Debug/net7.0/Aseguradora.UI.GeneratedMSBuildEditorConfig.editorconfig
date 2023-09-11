@@ -1,0 +1,109 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Aseguradora.UI
+build_property.RootNamespace = Aseguradora.UI
+build_property.ProjectDir = /home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI
+build_property._RazorSourceGeneratorDebug = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/EditarPoliza.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdGFyUG9saXphLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/EditarSiniestro.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdGFyU2luaWVzdHJvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/EditarTercero.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdGFyVGVyY2Vyby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/EditarTitular.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdGFyVGl0dWxhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/ListadoPolizas.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlzdGFkb1BvbGl6YXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/ListadoSiniestros.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlzdGFkb1Npbmllc3Ryb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/ListadoTerceros.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlzdGFkb1RlcmNlcm9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/ListadoTitularesConVehiculos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlzdGFkb1RpdHVsYXJlc0NvblZlaGljdWxvcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/ListadoVehiculos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlzdGFkb1ZlaGljdWxvcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Shared/DialogoError.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0RpYWxvZ29FcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/EditarVehiculo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdGFyVmVoaWN1bG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-71i4ode4r0
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/ListadoTitulares.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTGlzdGFkb1RpdHVsYXJlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-wtur9p9zz4
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Shared/DialogoConfirmacion.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0RpYWxvZ29Db25maXJtYWNpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-xfzr1fvw2y
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-tqmg7t31dg
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-0jbyc1i1t4
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jor/Documentos/.NET/Taller-.NET/proyectos/Aseguradora/Aseguradora.UI/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
